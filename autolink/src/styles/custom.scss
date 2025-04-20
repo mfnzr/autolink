@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$font-family: 'Montserrat', sans-serif;
+
+// Altere as cores principais aqui
+$primary: #B32222;
+$secondary: #ffffff;
+$success: #28a745;
+$danger: #dc3545;
+$body-color: #222222; // Cor do texto padrão (usado no body)
+$body-bg: #f2f2f2; // Cor de fundo do site
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+
+
+
+// Agora importa o Bootstrap (usa suas variáveis acima)
+@import '~bootstrap/scss/bootstrap';
