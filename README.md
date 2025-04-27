@@ -8,6 +8,10 @@ Este projeto tem como finalidade o gerenciamento de veículos disponíveis para 
 
 https://www.figma.com/design/qXHG2uGG098b1isSvOMTVc/AutoLink-2.0?node-id=61-2&p=f&t=FE1JUGRDZq1SHQE4-0
 
+## Framework CSS
+
+Bootstrap
+
 ## Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
 ### RA1 - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.
