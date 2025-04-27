@@ -4,7 +4,7 @@
 
 Este projeto tem como finalidade o gerenciamento de veículos disponíveis para venda. Cada veículo é cadastrado com seu respectivo valor de venda, definido a partir de uma consulta prévia à tabela FIPE. Após o cadastro, o veículo é exibido na página inicial do sistema. Em caso de venda, é possível alterá-lo para o status de "vendido", removendo-o da listagem principal e realocando-o para uma página destinada ao histórico de veículos vendidos.
 
-## link do figma do projeto
+## Figma
 
 https://www.figma.com/design/qXHG2uGG098b1isSvOMTVc/AutoLink-2.0?node-id=61-2&p=f&t=FE1JUGRDZq1SHQE4-0
 
