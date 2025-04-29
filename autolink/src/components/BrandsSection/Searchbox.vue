@@ -34,14 +34,14 @@ export default {
   margin: 0 50px;
 }
 .btn-outline-custom {
-  color: #b32222;
-  border: 1px solid #b32222;
-  background-color: transparent;
+  color: white;
+  background-color: #b32222;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-outline-custom:hover {
-  background-color: #b32222;
-  color: white;
+  background-color: white;
+  color: #b32222;
+  border: 1px solid #b32222;
 }
 </style>

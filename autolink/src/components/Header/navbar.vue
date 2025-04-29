@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg bg-secondary w-100 m-0 p-0 px-5">
-      <a class="navbar-brand ms-3" href="#">
+      <router-link class="nav-link text-primary" to="/">
         <img src="../../assets/autolink-logo.png" alt="Logo" width="90" height="84" class="d-inline-block align-text-top">
-      </a>
+      </router-link>
       <button
         class="navbar-toggler me-3"
         type="button"
@@ -18,10 +18,14 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav d-flex w-100 justify-content-between px-3">
           <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" href="#">Veículos Disponíveis</a>
+            <router-link class="nav-link text-primary" to="/">
+              Veículos Disponíveis
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Cadastrar novo veículo</a>
+            <router-link class="nav-link text-primary" to="/register-new-car">
+              Cadastrar novo veículo
+            </router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="#">Veículos Vendidos</a>
@@ -39,6 +43,7 @@
 <script lang="ts">
 export default {
   name: "Navbar",
+  components: {},
 };
 
 </script>
