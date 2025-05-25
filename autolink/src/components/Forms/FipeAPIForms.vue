@@ -24,8 +24,9 @@
             
             <label for="form-select" class="text-primary">Modelo</label>
             <select class="form-select bg-secondary" v-model="selectedModel">
-              <option disabled selected value="">Selecione um modelo</option>
+              <option disabled value="">Selecione um modelo</option>
               <option v-for="m in model" :key="m.code" :value="m.code">{{ m.name }}</option>
+              <option v-if="model.length === 0" disabled>Nenhum modelo disponível</option>
             </select>
 
             <label for="form-select" class="text-primary">Ano</label>
@@ -34,7 +35,7 @@
               <option v-for="y in year" :key="y.code" :value="y.code">{{ y.name }}</option>
             </select>
   
-            <span class="text-primary d-grid col-3 mx-auto p-4 fw-bold">R$ {{ value }}</span>
+            <span class="text-primary d-grid col-3 mx-auto p-4 fw-bold"> {{ price }}</span>
   
           <div class="d-grid gap-2 col-3 mx-auto">
             <button class="btn btn-primary" type="button">Continuar</button>
@@ -45,7 +46,7 @@
   
   <script lang="ts">
 import { ref, watch, onMounted } from 'vue';
-import fipeService from '@/services/api';
+import fipeService from '../../services/api';
 
 export default {
   name: "FipeAPIForms",
@@ -56,7 +57,7 @@ export default {
     const brand = ref<any[]>([]);
     const model = ref<any[]>([]);
     const year = ref<any[]>([]);
-    const value = ref<string>('');
+    const price = ref<string>('');
 
     const selectedBrand = ref('');
     const selectedModel = ref('');
@@ -73,70 +74,69 @@ export default {
     const loadBrands = async () => {
       try {
         const vehicleType = getVehicleType();
-        brand.value = await fipeService.getBrands(vehicleType);
+        const response = await fipeService.getBrands(vehicleType);
+        brand.value = response;
         console.log('Marcas carregadas:', brand.value);
-        model.value = [];
-        year.value = [];
-        value.value = '';
-        selectedBrand.value = '';
-        selectedModel.value = '';
-        selectedYear.value = '';
       } catch (error) {
         console.error('Erro ao carregar marcas:', error);
       }
     };
 
-    watch(selectedCategory, async () => {
-      await loadBrands();
-    });
-
-    watch(selectedBrand, async (newBrand) => {
-  if (!newBrand) return;
-  console.log('Marca selecionada:', newBrand);
-  try {
-    const vehicleType = getVehicleType();
-    const data = await fipeService.getModels(vehicleType, newBrand);
-    
-    console.log('Resposta da API para modelos:', data); // Mostra o objeto completo retornado
-    model.value = data.models || []; // Corrigido: acessa corretamente a propriedade 'models'
-    
-    console.log('Modelos retornados:', model.value); // Verifica se agora há dados no array
-    
-    year.value = [];
-    value.value = '';
-    selectedModel.value = '';
-    selectedYear.value = '';
-  } catch (error) {
-    console.error('Erro ao carregar modelos:', error);
-  }
-});
-
-
-    watch(selectedModel, async (newModel) => {
-      if (!selectedBrand.value || !newModel) return;
-      console.log('Modelo selecionado:', newModel);
+    const loadModels = async () => {
+      if(!selectedBrand.value) return;
       try {
         const vehicleType = getVehicleType();
-        year.value = await fipeService.getYears(vehicleType, selectedBrand.value, newModel);
-        console.log('Anos retornados:', year.value);
-        value.value = '';
-        selectedYear.value = '';
+        const response = await fipeService.getModels(vehicleType, selectedBrand.value);
+        console.log('Resposta bruta da API:', response);
+        model.value = response;
+        console.log('Modelos carregados:', model.value);
+      } catch (error) {
+        console.error('Erro ao carregar modelos:', error);
+      }
+    };
+
+    const loadYears = async () => {
+      if(!selectedModel.value) return;
+      try {
+        const vehicleType = getVehicleType();
+        const response = await fipeService.getYears(vehicleType, selectedBrand.value, selectedModel.value);
+        console.log('Resposta bruta da API:', response);
+        year.value = response;
+        console.log('Anos carregados:', year.value);
       } catch (error) {
         console.error('Erro ao carregar anos:', error);
       }
-    });
+    }
 
-    watch(selectedYear, async (newYear) => {
-      if (!selectedBrand.value || !selectedModel.value || !newYear) return;
-      console.log('Ano selecionado:', newYear);
+    const loadValue = async () => {
+      if(!selectedYear.value) return;
       try {
         const vehicleType = getVehicleType();
-        const data = await fipeService.getValue(vehicleType, selectedBrand.value, selectedModel.value, newYear);
-        console.log('Valor retornado:', data);
-        value.value = data.price || data.Valor || '';
+        const response = await fipeService.getValue(vehicleType, selectedBrand.value, selectedModel.value, selectedYear.value);
+        console.log('Resposta bruta da API:', response);
+        price.value = response.price;
+        console.log('Valor carregado:', price.value);
       } catch (error) {
         console.error('Erro ao carregar valor:', error);
       }
+    }
+
+    watch(selectedBrand, () => {
+      selectedModel.value = "";
+      loadModels();
+    });
+
+    watch(selectedModel, () => {
+      selectedYear.value = "";
+      loadYears();
+    });
+
+    watch(selectedYear, () => {
+      loadValue();
+    });
+
+    watch(selectedCategory, async () => {
+      await loadBrands();
     });
 
     onMounted(async () => {
@@ -149,7 +149,7 @@ export default {
       brand,
       model,
       year,
-      value,
+      price,
       selectedBrand,
       selectedModel,
       selectedYear,
