@@ -23,7 +23,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link text-primary" to="/register-new-car">
+            <router-link class="nav-link text-primary" to="/fipe-api">
               Cadastrar novo veículo
             </router-link>
           </li>

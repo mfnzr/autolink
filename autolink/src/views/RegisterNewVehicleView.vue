@@ -2,21 +2,21 @@
   <div class="register-new-car">
     <Header />
     <Navbar />
-    <FipeAPIForms />
+    <VehicleRegistrationForm />
   </div>
 </template>
 
 <script lang="ts">
 import Header from "../components/Header/header.vue";
 import Navbar from "../components/Header/navbar.vue";
-import FipeAPIForms from "@/components/Forms/FipeAPIForms.vue";
+import VehicleRegistrationForm from "../components/Forms/VehicleRegistrationForm.vue";
 
 export default {
-  name: "RegisterNewCar",
+  name: "RegisterNewVehicleView",
   components: {
     Header,
     Navbar,
-    FipeAPIForms
+    VehicleRegistrationForm
   },
 };
 

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import RegisterCarView from '@/views/RegisterNewCarView.vue'
+import FipeAPI from '@/views/FipeApiView.vue'
+import RegisterNewVehicleView from '@/views/RegisterNewVehicleView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,9 +10,14 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/register-new-car',
-    name: 'RegisterNewCar',
-    component: RegisterCarView
+    path: '/fipe-api',
+    name: 'FipeAPI',
+    component: FipeAPI
+  },
+  {
+    path: '/register-new-vehicle',
+    name: 'VehicleRegister',
+    component: RegisterNewVehicleView
   }
 ]
 
