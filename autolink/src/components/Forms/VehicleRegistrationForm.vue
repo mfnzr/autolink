@@ -36,7 +36,6 @@
 					@change="handleImageUpload"
 				/>
 
-				<!-- Pré-visualização da imagem -->
 				<div v-if="imagePreview" class="mt-3 text-center">
 					<p class="text-primary">Pré-visualização:</p>
 					<img :src="imagePreview" alt="Pré-visualização" class="img-fluid rounded" style="max-height: 200px;" />
@@ -67,9 +66,9 @@ export default {
     const model = ref('');
     const year = ref('');
     const price = ref('');
-	const description = ref('');
-	const imageFile = ref<File | null>(null);
-	const imagePreview = ref<string | null>(null);
+    const description = ref('');
+    const imageFile = ref<File | null>(null);
+    const imagePreview = ref<string | null>(null);
 
     onMounted(() => {
       category.value = route.query.category as string || '';
@@ -84,10 +83,9 @@ export default {
 			const file = target.files?.[0];
 
 			if (file) {
-				imageFile.value = file;
+        imageFile.value = file;
 
-				// Gerar uma URL temporária para exibir a imagem
-				imagePreview.value = URL.createObjectURL(file);
+        imagePreview.value = URL.createObjectURL(file);
 			}
 		};
 
@@ -101,10 +99,11 @@ export default {
       model,
       year,
       price,
+	    description,
       submitVehicle,
-			handleImageUpload,
-			imagePreview,
-			imageFile,
+      handleImageUpload,
+      imagePreview,
+      imageFile,
     };
   }
 };
