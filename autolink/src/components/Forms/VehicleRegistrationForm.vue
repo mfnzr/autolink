@@ -54,12 +54,15 @@
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useStore } from '../../store';
 
 export default {
   name: 'VehicleRegistrationForm',
   setup() {
     const route = useRoute();
+	const router = useRouter();
+	const vehicleStore = useStore();
 
     const category = ref('');
     const brand = ref('');
@@ -90,7 +93,18 @@ export default {
 		};
 
     const submitVehicle = () => {
-      alert('Veiculo cadastrado com sucesso!');
+      const newVehicle = {
+		category: category.value,
+		brand: brand.value,
+		model: model.value,
+		year: year.value,
+		price: price.value,
+		description: description.value,
+		image: imagePreview.value,
+	  }
+
+	  vehicleStore.addVehicle(newVehicle);
+	  router.push('/');
     }
 
     return {
