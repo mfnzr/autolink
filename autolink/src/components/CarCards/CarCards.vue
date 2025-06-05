@@ -26,14 +26,38 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { useStore } from '../../store';
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+
+interface Vehicle {
+  category: string;
+  brand: string;
+  model: string;
+  year: string;
+  price: string;
+  description: string;
+  image: string;
+}
+
 
 export default {
   name: "CarCards",
   setup() {
-    const vehicleStore = useStore();
-    const vehicles = computed(() => vehicleStore.vehicles);
+    const vehicles= ref<Vehicle[]>([]);
+
+    const fetchVehicles = async () => {
+      try {
+        const response = await axios.get<Vehicle[]>('http://localhost:3000/available-vehicles');
+          vehicles.value = response.data
+      } catch (error) {
+        console.error('Erro ao buscar veículos:', error);
+      }
+    }
+
+    onMounted(() => {
+      fetchVehicles();
+    })
 
     return {
       vehicles,
@@ -44,19 +68,19 @@ export default {
 
 <style scoped>
 .card-img-top {
-  height: 250px; /* altura fixa da imagem */
-  object-fit: cover; /* corta e preenche proporcionalmente */
+  height: 250px;
+  object-fit: cover;
 }
 
 .card {
-  height: 100%; /* força os cards a terem mesma altura se usado com layout adequado */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card-body {
-  flex-grow: 1; /* preenche o espaço restante do card */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

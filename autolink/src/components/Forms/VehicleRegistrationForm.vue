@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid p-5">
+	<div class="container-fluid p-5">
 		<div class="mx-auto col-md-6">
 			<h3 class="bg-primary text-secondary text-center p-2 m-0 fs-6 custom-title">
 				Cadastro do veículo
@@ -29,12 +29,7 @@
 				<textarea class="form-control bg-secondary mb-3" v-model="description" />
 
 				<label class="text-primary mt-3">Foto do veículo</label>
-				<input
-					type="file"
-					class="form-control bg-secondary text-light"
-					accept="image/*"
-					@change="handleImageUpload"
-				/>
+				<input type="file" class="form-control bg-secondary text-light" accept="image/*" @change="handleImageUpload" />
 
 				<div v-if="imagePreview" class="mt-3 text-center">
 					<p class="text-primary">Pré-visualização:</p>
@@ -49,85 +44,97 @@
 				</div>
 			</div>
 		</div>
-  </div>
+	</div>
 </template>
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from '../../store';
+import axios from 'axios';
 
 export default {
-  name: 'VehicleRegistrationForm',
-  setup() {
-    const route = useRoute();
-	const router = useRouter();
-	const vehicleStore = useStore();
+	name: 'VehicleRegistrationForm',
+	setup() {
+		const route = useRoute();
+		const router = useRouter();
+		const vehicleStore = useStore();
 
-    const category = ref('');
-    const brand = ref('');
-    const model = ref('');
-    const year = ref('');
-    const price = ref('');
-    const description = ref('');
-    const imageFile = ref<File | null>(null);
-    const imagePreview = ref<string | null>(null);
+		const category = ref('');
+		const brand = ref('');
+		const model = ref('');
+		const year = ref('');
+		const price = ref('');
+		const description = ref('');
+		const imageFile = ref<File | null>(null);
+		const imagePreview = ref<string | null>(null);
 
-    onMounted(() => {
-      category.value = route.query.category as string || '';
-      brand.value = route.query.brand as string || '';
-      model.value = route.query.model as string || '';
-      year.value = route.query.year as string || '';
-      price.value = route.query.price as string || '';
-    });
+		onMounted(() => {
+			category.value = route.query.category as string || '';
+			brand.value = route.query.brand as string || '';
+			model.value = route.query.model as string || '';
+			year.value = route.query.year as string || '';
+			price.value = route.query.price as string || '';
+		});
 
 		const handleImageUpload = (event: Event) => {
 			const target = event.target as HTMLInputElement;
 			const file = target.files?.[0];
 
 			if (file) {
-        imageFile.value = file;
+				const reader = new FileReader();
 
-        imagePreview.value = URL.createObjectURL(file);
+				reader.onload = () => {
+					imagePreview.value = reader.result as string; //Base64
+				};
+
+				reader.readAsDataURL(file);
 			}
 		};
 
-    const submitVehicle = () => {
-      const newVehicle = {
-		category: category.value,
-		brand: brand.value,
-		model: model.value,
-		year: year.value,
-		price: price.value,
-		description: description.value,
-		image: imagePreview.value,
-	  }
 
-	  vehicleStore.addVehicle(newVehicle);
-	  router.push('/');
-    }
+		const submitVehicle = async () => {
+			try {
+				const newVehicle = {
+					category: category.value,
+					brand: brand.value,
+					model: model.value,
+					year: year.value,
+					price: price.value,
+					description: description.value,
+					image: imagePreview.value,
+				}
+			  
+				await axios.post('http://localhost:3000/available-vehicles', newVehicle)
+				router.push('/');
+			} catch(error) {
+				console.error('Erro ao cadastrar veículo:', error);
+				alert('Erro ao cadastrar veículo')
+			}
+		}
 
-    return {
+		return {
 			category,
-      brand,
-      model,
-      year,
-      price,
-	    description,
-      submitVehicle,
-      handleImageUpload,
-      imagePreview,
-      imageFile,
-    };
-  }
+			brand,
+			model,
+			year,
+			price,
+			description,
+			submitVehicle,
+			handleImageUpload,
+			imagePreview,
+			imageFile,
+		};
+	}
 };
 </script>
 
 <style scoped>
 .radious {
-  border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
 }
+
 .custom-title {
-  border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
 }
 </style>
