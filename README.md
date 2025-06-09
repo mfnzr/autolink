@@ -16,6 +16,12 @@ Bootstrap
 
 Vue.js
 
+## API
+
+FIPE API
+doc:
+https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
+
 ## Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
 ### RA1 - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.
