@@ -22,8 +22,9 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('/autolink/'),  // use a base do GitHub Pages aqui
   routes
 })
+
 
 export default router
