@@ -1,7 +1,5 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// @ts-nocheck
 
-export default defineConfig({
-  base: '/autolink/', 
-  plugins: [vue()],
-})
+module.exports = {
+  publicPath: '/autolink/',
+}
