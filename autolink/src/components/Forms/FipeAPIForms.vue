@@ -131,6 +131,20 @@ export default {
       const selectedModelName = model.value.find(m => m.code === selectedModel.value)?.name || '';
       const selectedYearName = year.value.find(y => y.code === selectedYear.value)?.name || '';
 
+      const yearREGEX = /^20\d{2}|19\d{2}$/;
+      const valueREGEX = /^R\$ ?\d{1,3}(\.\d{3})*,\d{2}$/;
+      const extractYear = selectedYearName.match(/\d{4}/)?.[0] ?? '';
+      const extractValue = price.value;
+      if (!yearREGEX.test(extractYear)) {
+        alert('Ano inválido');
+        return;
+      }
+
+      if (!valueREGEX.test(extractValue)) {
+        alert('Valor inválido');
+        return;
+      }
+      
       router.push({
         name: 'VehicleRegister',
         query: {

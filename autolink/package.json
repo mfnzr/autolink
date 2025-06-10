@@ -48,7 +48,7 @@
     "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
     "jquery": "^3.7.1",
-    "pinia": "^3.0.2",
+    "pinia": "^3.0.3",
     "sass": "^1.86.3",
     "sass-loader": "^10.5.2",
     "vue": "^3.2.13",
@@ -58,6 +58,7 @@
     "xyz": "^5.0.0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.4",
     "@types/node": "^18.19.111",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/cli-plugin-router": "~5.0.0",
