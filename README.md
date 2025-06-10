@@ -22,6 +22,17 @@ FIPE API
 doc:
 https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
 
+## Instruções:
+
+### Front-end:
+npm install
+npm install axios
+npm install pinia
+
+### JSON Server:
+npm install -g json-server
+json-server --watch db.json --port 3000
+
 ## Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
 ### RA1 - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.
@@ -63,5 +74,5 @@ https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
 
 ### RA5 - Efetuar requisições assíncronas para uma API fake e APIs públicas, permitindo a obtenção e manipulação de dados dinamicamente.
 
-- [ ] ID 25 - Realiza requisições assíncronas para uma API fake utilizando adequadamente conceitos como AJAX, Fetch API ou bibliotecas, para persistir os dados originados de um formulário.
-- [ ] ID 26 - Realiza requisições assíncronas para uma API fake utilizando adequadamente conceitos como AJAX, Fetch API ou bibliotecas, para exibição dos dados na página web.
+- [x] ID 25 - Realiza requisições assíncronas para uma API fake utilizando adequadamente conceitos como AJAX, Fetch API ou bibliotecas, para persistir os dados originados de um formulário.
+- [x] ID 26 - Realiza requisições assíncronas para uma API fake utilizando adequadamente conceitos como AJAX, Fetch API ou bibliotecas, para exibição dos dados na página web.
