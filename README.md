@@ -25,13 +25,13 @@ https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
 ## Instruções:
 
 ### Front-end:
-npm install
-npm install axios
-npm install pinia
+- npm install
+- npm install axios
+- npm install pinia
 
 ### JSON Server:
-npm install -g json-server
-json-server --watch db.json --port 3000
+- npm install -g json-server
+- json-server --watch db.json --port 3000
 
 ## Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
