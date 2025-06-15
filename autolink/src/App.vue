@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <router-view/>
+  <div id="app">
+    <router-view />
   </div>
 </template>
 
@@ -11,10 +11,21 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
 #app {
-  background-color: #f2f2f2;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+router-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
