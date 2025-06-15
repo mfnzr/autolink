@@ -3,6 +3,7 @@
       <Header />
       <Navbar />
       <FipeAPIForms />
+      <Footer />
     </div>
   </template>
   
@@ -10,13 +11,15 @@
   import Header from "../components/Header/header.vue";
   import Navbar from "../components/Header/navbar.vue";
   import FipeAPIForms from "../components/Forms/FipeAPIForms.vue";
-  
+  import Footer from "../components/Footer/Footer.vue"
+
   export default {
     name: "FipeAPI",
     components: {
       Header,
       Navbar,
-      FipeAPIForms
+      FipeAPIForms,
+      Footer
     },
   };
   
