@@ -6,6 +6,7 @@
     <BrandsNav />
     <Searchbox />
     <CarCards />
+    <Footer class="footer" />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Carousel from "../components/Carousel/Carousel.vue";
 import Header from "../components/Header/header.vue";
 import Navbar from "../components/Header/navbar.vue";
 import CarCards from "../components/CarCards/CarCards.vue";
+import Footer from "../components/Footer/Footer.vue"
 
 export default {
   name: "HomeView",
@@ -26,6 +28,19 @@ export default {
     BrandsNav,
     Searchbox,
     CarCards,
+    Footer
   },
 };
 </script>
+
+<style scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* ocupa o espaço disponível */
+}
+
+.footer {
+  margin-top: auto;
+}
+</style>
