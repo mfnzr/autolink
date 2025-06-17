@@ -6,7 +6,7 @@
     <BrandsNav />
     <Searchbox />
     <CarCards />
-    <Footer class="footer" />
+    <ServicesSection />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ import Header from "../components/Header/header.vue";
 import Navbar from "../components/Header/navbar.vue";
 import CarCards from "../components/CarCards/CarCards.vue";
 import Footer from "../components/Footer/Footer.vue"
+import ServicesSection from "@/components/ServicesSection/ServicesSection.vue";
 
 export default {
   name: "HomeView",
@@ -28,7 +29,8 @@ export default {
     BrandsNav,
     Searchbox,
     CarCards,
-    Footer
+    Footer,
+    ServicesSection,
   },
 };
 </script>
