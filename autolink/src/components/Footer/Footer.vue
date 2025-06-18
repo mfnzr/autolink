@@ -10,7 +10,7 @@
 						<!-- REDES SOCIAIS -->
 						<ul class="list-unstyled d-flex mb-4">
 							<li class="me-1">
-								<a class="text-primary" href="#" aria-label="Facebook">
+								<a class="text-primary social-media" href="#" aria-label="Facebook">
 									<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M24 12.33C24 5.70188 18.6281 0.330002 12 0.330002C5.37188 0.330002 0 5.70188 0 12.33C0 18.9581 5.37188 24.33 12 24.33C12.0703 24.33 12.1406 24.33 12.2109 24.3253V14.9878H9.63281V11.9831H12.2109V9.77062C12.2109 7.20656 13.7766 5.80969 16.0641 5.80969C17.1609 5.80969 18.1031 5.88938 18.375 5.92688V8.60813H16.8C15.5578 8.60813 15.3141 9.19875 15.3141 10.0659V11.9784H18.2906L17.9016 14.9831H15.3141V23.8659C20.3297 22.4269 24 17.8097 24 12.33Z" fill="#B32222"/>
 									</svg>
@@ -125,8 +125,7 @@
           </div>
         </div>
       </div>
-
-      <div class="bg-primary py-2 d-flex flex-column flex-sm-row justify-content-center align-items-center w-100 mt-5">
+      <div class="copyright-container bg-primary py-2 d-flex flex-column flex-sm-row justify-content-center align-items-center w-100 mt-5">
         <p class="text-secondary mb-0 copyright">Copyright © 2025 AutoLink</p>
         <ul class="list-unstyled d-flex mb-0 ms-sm-3">
           <li class="ms-3">
@@ -173,5 +172,9 @@ li a {
 
 .list a:hover {
 	text-decoration: underline;
+}
+
+.copyright-container {
+  position: absolute;
 }
 </style>

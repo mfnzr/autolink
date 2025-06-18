@@ -1,5 +1,5 @@
 <template>
-  <div class="content bg-primary text-white m-0">
+  <div class="content bg-primary text-white">
     <div class="container">
       <h2 class="text-center m-4 fs-3 fw-semibold">Serviços</h2>
       <div class="row gap-4 p-3 d-flex justify-content-center align-items-center">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="card d-flex align-items-center bg-body-bg" style="width: 376px; height: 330px;">
+        <div class="card d-flex align-items-center bg-body-bg mb-4" style="width: 376px; height: 330px;">
           <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_1_1170)">
             <rect x="18" y="16" width="104" height="104" rx="52" fill="url(#paint0_linear_1_1170)"/>
@@ -76,6 +76,9 @@
 </script>
 
 <style scoped>
+.content {
+  margin: 50px;
+}
 p {
     color: #888888;
 }

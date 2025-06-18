@@ -7,6 +7,7 @@
     <Searchbox />
     <CarCards />
     <ServicesSection />
+    <Footer />
   </div>
 </template>
 
@@ -18,7 +19,7 @@ import Header from "../components/Header/header.vue";
 import Navbar from "../components/Header/navbar.vue";
 import CarCards from "../components/CarCards/CarCards.vue";
 import Footer from "../components/Footer/Footer.vue"
-import ServicesSection from "@/components/ServicesSection/ServicesSection.vue";
+import ServicesSection from "../components/ServicesSection/ServicesSection.vue";
 
 export default {
   name: "HomeView",
@@ -39,10 +40,8 @@ export default {
 .home {
   display: flex;
   flex-direction: column;
-  flex: 1; /* ocupa o espaço disponível */
+  flex: 1;
 }
 
-.footer {
-  margin-top: auto;
-}
+
 </style>
