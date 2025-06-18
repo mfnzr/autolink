@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid p-5 ">
+  <div class="container-fluid p-5 container">
     <div class="mx-auto col-md-6">
       <h3 class="
                   bg-primary
@@ -203,4 +203,9 @@ export default {
 .custom-title {
   border-radius: 10px 10px 0 0;
 }
+
+.container {
+  margin-bottom: 20%;
+}
+
 </style>
