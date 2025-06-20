@@ -1,4 +1,5 @@
 <template>
+  <div :class="['animate__animated', 'animate__fadeIn']">
   <div class="container-fluid p-5 container">
     <div class="mx-auto col-md-6">
       <h3 class="
@@ -44,12 +45,14 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { ref, watch, onMounted } from 'vue';
 import fipeService from '../../services/api';
 import { useRouter } from 'vue-router';
+import 'animate.css'
 
 export default {
   name: "FipeAPIForms",

@@ -1,4 +1,5 @@
 <template>
+  <div :class="['animate__animated', 'animate__fadeIn']">
     <footer class="py-5 footer-transparent w-100 mt-5">
       <div class="container">
         <div class="row">
@@ -141,6 +142,7 @@
         </ul>
       </div>
     </footer>
+  </div>
 </template>
 
 

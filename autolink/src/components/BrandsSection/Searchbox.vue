@@ -1,26 +1,28 @@
 <template>
-  <nav class="bg-secondary radious">
-    <h3 class="text-primary text-center m-0 fs-6 fw-bold">
-      ENCONTRE SEU VEÍCULO
-    </h3>
-    <div class="container-fluid p-3">
-      <form class="d-flex" role="search">
-        <div class="position-relative w-100 me-2">
-          <font-awesome-icon
-            icon="magnifying-glass"
-            class="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted"
-          />
-          <input
-            class="form-control ps-5 bg-white"
-            type="search"
-            placeholder="Busque por marca ou modelo do carro"
-            aria-label="Buscar"
-          />
-        </div>
-        <button class="btn btn-outline-custom" type="submit">Buscar</button>
-      </form>
-    </div>
-  </nav>
+  <div :class="['animate__animated', 'animate__fadeIn']">
+    <nav class="bg-secondary radious">
+      <h3 class="text-primary text-center m-0 fs-6 fw-bold">
+        ENCONTRE SEU VEÍCULO
+      </h3>
+      <div class="container-fluid p-3">
+        <form class="d-flex" role="search">
+          <div class="position-relative w-100 me-2">
+            <font-awesome-icon
+              icon="magnifying-glass"
+              class="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted"
+            />
+            <input
+              class="form-control ps-5 bg-white"
+              type="search"
+              placeholder="Busque por marca ou modelo do carro"
+              aria-label="Buscar"
+            />
+          </div>
+          <button class="btn btn-outline-custom" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script lang="ts">

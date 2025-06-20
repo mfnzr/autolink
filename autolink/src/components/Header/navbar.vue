@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="['animate__animated', 'animate__fadeIn']">
     <nav class="navbar navbar-expand-lg bg-secondary w-100 m-0 p-0 px-5">
       <router-link class="nav-link text-primary" to="/">
         <img src="../../assets/autolink-logo.png" alt="Logo" width="90" height="84" class="d-inline-block align-text-top">
@@ -28,7 +28,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Veículos Vendidos</a>
+            <router-link class="nav-link text-primary" to="/sold-vehicles">Veículos Vendidos</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled text-primary" aria-disabled="true">AutoLink</a>
