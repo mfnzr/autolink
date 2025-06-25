@@ -33,6 +33,15 @@ https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
 - npm install -g json-server
 - json-server --watch db.json --port 3000
 
+### Bibliotecas utilizadas:
+- Toastify: exibir avisos de ações concluídas com sucesso ou erros
+- Cloudinary: armazenar imagens no Cloudinary
+- FontAwesome: icones
+- Animate.css: Biblioteca de animações CSS
+- Axios: requisições para API
+- Pinia: gerenciador de estado
+- Vue-Router: gerenciador de rotas
+
 ## Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
 ### RA1 - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.
