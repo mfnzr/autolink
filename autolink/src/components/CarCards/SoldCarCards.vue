@@ -46,7 +46,6 @@ export default {
   name: "SoldCarCards",
   setup() {
     const vehicles = ref<Vehicle[]>([]);
-    const router = useRouter();
 
     const fetchVehicles = async () => {
       try {

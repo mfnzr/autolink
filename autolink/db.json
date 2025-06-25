@@ -1,27 +1,4 @@
 {
-  "available-vehicles": [
-    {
-      "id": "ced4",
-      "category": "Carros",
-      "brand": "Alfa Romeo",
-      "model": "145 Quadrifoglio 2.0",
-      "year": "1998 Gasolina",
-      "price": "R$ 29.143,00",
-      "description": "170.000 km | Manual",
-      "image": null
-    }
-  ],
-  "sold-vehicles": [
-
-    {
-      "id": "6158",
-      "category": "Motos",
-      "brand": "BRAVA",
-      "model": "YB 150T-15 150cc",
-      "year": "2008",
-      "price": "R$ 3.597,00",
-      "description": "",
-      "image": null
-    }
-  ]
+  "available-vehicles": [],
+  "sold-vehicles": []
 }

@@ -53,6 +53,8 @@ import { ref, watch, onMounted } from 'vue';
 import fipeService from '../../services/api';
 import { useRouter } from 'vue-router';
 import 'animate.css'
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: "FipeAPIForms",
@@ -84,7 +86,6 @@ export default {
         const vehicleType = getVehicleType();
         const response = await fipeService.getBrands(vehicleType);
         brand.value = response;
-        console.log('Marcas carregadas:', brand.value);
       } catch (error) {
         console.error('Erro ao carregar marcas:', error);
       }
@@ -95,9 +96,7 @@ export default {
       try {
         const vehicleType = getVehicleType();
         const response = await fipeService.getModels(vehicleType, selectedBrand.value);
-        console.log('Resposta bruta da API:', response);
         model.value = response;
-        console.log('Modelos carregados:', model.value);
       } catch (error) {
         console.error('Erro ao carregar modelos:', error);
       }
@@ -108,9 +107,7 @@ export default {
       try {
         const vehicleType = getVehicleType();
         const response = await fipeService.getYears(vehicleType, selectedBrand.value, selectedModel.value);
-        console.log('Resposta bruta da API:', response);
         year.value = response;
-        console.log('Anos carregados:', year.value);
       } catch (error) {
         console.error('Erro ao carregar anos:', error);
       }
@@ -121,9 +118,7 @@ export default {
       try {
         const vehicleType = getVehicleType();
         const response = await fipeService.getValue(vehicleType, selectedBrand.value, selectedModel.value, selectedYear.value);
-        console.log('Resposta bruta da API:', response);
         price.value = response.price;
-        console.log('Valor carregado:', price.value);
       } catch (error) {
         console.error('Erro ao carregar valor:', error);
       }
@@ -139,12 +134,12 @@ export default {
       const extractYear = selectedYearName.match(/\d{4}/)?.[0] ?? '';
       const extractValue = price.value;
       if (!yearREGEX.test(extractYear)) {
-        alert('Ano inválido');
+        toast.error('Ano inválido');
         return;
       }
 
       if (!valueREGEX.test(extractValue)) {
-        alert('Valor inválido');
+        toast.error('Valor inválido');
         return;
       }
       
