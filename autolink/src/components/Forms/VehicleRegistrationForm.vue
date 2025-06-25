@@ -78,13 +78,14 @@ import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "../../store";
 import axios from "axios";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: "VehicleRegistrationForm",
   setup() {
     const route = useRoute();
     const router = useRouter();
-    const vehicleStore = useStore();
 
     const category = ref("");
     const brand = ref("");
@@ -103,23 +104,40 @@ export default {
       price.value = (route.query.price as string) || "";
     });
 
+    const uploadToCloudinary = async (file: File) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "autolink");
+      formData.append("folder", "vehicles");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/autolinkimage/image/upload",
+        formData
+      );
+      return response.data.secure_url;
+    }
+
     const handleImageUpload = (event: Event) => {
       const target = event.target as HTMLInputElement;
       const file = target.files?.[0];
 
       if (file) {
+        imageFile.value = file;  // 💡 Salva o file para enviar ao Cloudinary
+
         const reader = new FileReader();
-
         reader.onload = () => {
-          imagePreview.value = reader.result as string; //Base64
+          imagePreview.value = reader.result as string; 
         };
-
         reader.readAsDataURL(file);
       }
     };
 
     const submitVehicle = async () => {
       try {
+        let imageUrl = "";
+        if (imageFile.value) {
+          imageUrl= await uploadToCloudinary(imageFile.value)
+        }
         const newVehicle = {
           category: category.value,
           brand: brand.value,
@@ -127,17 +145,19 @@ export default {
           year: year.value,
           price: price.value,
           description: description.value,
-          image: imagePreview.value,
+          image: imageUrl,
         };
 
         await axios.post(
           "http://localhost:3000/available-vehicles",
           newVehicle
         );
+        toast.success("Veículo cadastrado com sucesso")
         router.push("/");
       } catch (error) {
         console.error("Erro ao cadastrar veículo:", error);
         alert("Erro ao cadastrar veículo");
+        toast.error("Erro ao cadastrar veículo")
       }
     };
 

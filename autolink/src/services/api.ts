@@ -18,7 +18,6 @@ const fipeService = {
         throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
       }
       const data = await res.json();
-      console.log('Resposta da API para modelos:', data);
       return data;
     } catch (error) {
       console.error(`Erro ao buscar modelos para ${vehicleType}/${brandId}:`, error);

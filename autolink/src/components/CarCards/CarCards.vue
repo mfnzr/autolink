@@ -12,11 +12,15 @@
       class="card-img-top"
       alt="Foto do veículo"
     />
-    <button class="mark-sold-btn btn border-3 rounded-circle bg-secondary" @click="markAsSold(vehicle)">
+    <button
+      class="mark-sold-btn btn border-3 rounded-circle bg-secondary"
+      @click="markAsSold(vehicle)"
+    >
       <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 2.36493V8.17341C0 8.83391 0.245057 9.4672 0.683964 9.93344L7.12127 16.7715C8.03566 17.7428 9.51697 17.7428 10.4314 16.7715L15.3142 11.5847C16.2286 10.6134 16.2286 9.03982 15.3142 8.06851L8.8769 1.23043C8.43799 0.764198 7.84181 0.503885 7.22002 0.503885L1.75563 0.5C0.786376 0.5 0 1.33533 0 2.36493ZM4.09647 3.60822C4.40688 3.60822 4.70458 3.7392 4.92408 3.97237C5.14358 4.20553 5.26689 4.52176 5.26689 4.8515C5.26689 5.18124 5.14358 5.49748 4.92408 5.73064C4.70458 5.9638 4.40688 6.09479 4.09647 6.09479C3.78605 6.09479 3.48835 5.9638 3.26886 5.73064C3.04936 5.49748 2.92605 5.18124 2.92605 4.8515C2.92605 4.52176 3.04936 4.20553 3.26886 3.97237C3.48835 3.7392 3.78605 3.60822 4.09647 3.60822Z" fill="#B32222"/>
-      </svg>
+      </svg>      
 
+      <span class="custom-tooltip">Marcar como vendido</span>
     </button>
     <div class="card-body">
       <div>
@@ -37,6 +41,8 @@
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 interface Vehicle {
   id: number;
@@ -71,7 +77,7 @@ export default {
 
         vehicles.value = vehicles.value.filter(v => v.id !== vehicle.id);
 
-        alert(`Veículo ${vehicle.brand} ${vehicle.model} definido como vendido.`);
+        toast.success(`Veículo ${vehicle.brand} ${vehicle.model} definido como vendido`)
       } catch (error) {
         console.error('Erro ao marcar como vendido:', error);
       }
@@ -124,4 +130,27 @@ export default {
 .mark-sold-btn:hover svg path {
   fill: #fff;
 }
+
+.custom-tooltip {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+  left: 10px;
+  font-size: clamp(0.6rem, 1vw + 0.4rem, 0.9rem);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.mark-sold-btn:hover .custom-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 </style>
