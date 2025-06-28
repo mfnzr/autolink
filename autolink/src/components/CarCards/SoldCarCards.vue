@@ -76,10 +76,12 @@ export default {
 }
 
 .card {
-  height: 100%;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 450px;
+  width: 18rem; 
 }
 
 .card-body {

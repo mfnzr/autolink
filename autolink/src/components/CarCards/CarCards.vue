@@ -4,8 +4,7 @@
     <div
       v-for="(vehicle, index) in vehicles"
       :key="index"
-      class="card"
-      style="width: 18rem; margin: 3rem;"
+      class="card m-5"
     >
     <img
       :src="vehicle.image"
@@ -102,10 +101,12 @@ export default {
 }
 
 .card {
-  height: 100%;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 450px;
+  width: 18rem; 
 }
 
 .card-body {
