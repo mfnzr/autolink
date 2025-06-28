@@ -20,7 +20,7 @@ Vue.js
 
 FIPE API
 doc:
-https://deividfortuna.github.io/fipe/v2/#tag/Fipe/operation/GetModelsByBrand
+https://deividfortuna.github.io/fipe/v2/
 
 ## Instruções:
 
