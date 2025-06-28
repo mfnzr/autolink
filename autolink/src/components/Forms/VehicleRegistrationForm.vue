@@ -122,7 +122,7 @@ export default {
       const file = target.files?.[0];
 
       if (file) {
-        imageFile.value = file;  // 💡 Salva o file para enviar ao Cloudinary
+        imageFile.value = file;
 
         const reader = new FileReader();
         reader.onload = () => {
@@ -153,7 +153,9 @@ export default {
           newVehicle
         );
         toast.success("Veículo cadastrado com sucesso")
-        router.push("/");
+        setTimeout (() => {
+          router.push("/");
+        }, 2000);
       } catch (error) {
         console.error("Erro ao cadastrar veículo:", error);
         alert("Erro ao cadastrar veículo");

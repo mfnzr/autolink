@@ -1,4 +1,65 @@
 {
-  "available-vehicles": [],
+  "available-vehicles": [
+    {
+      "id": "b7cc",
+      "category": "Carros",
+      "brand": "Honda",
+      "model": "Civic Sedan LXS 1.8/1.8 Flex 16V Mec. 4p",
+      "year": "2008 Gasolina",
+      "price": "R$ 40.421,00",
+      "description": "170.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751151617/vehicles/dwhabgdnoffn3txowrbd.png"
+    },
+    {
+      "id": "5c6b",
+      "category": "Carros",
+      "brand": "BMW",
+      "model": "320iA",
+      "year": "2012 Gasolina",
+      "price": "R$ 64.544,00",
+      "description": "150.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751151715/vehicles/ab0txcjcp4hyjhfbiyhm.png"
+    },
+    {
+      "id": "e47f",
+      "category": "Motos",
+      "brand": "SUZUKI",
+      "model": "GSR 750",
+      "year": "2016",
+      "price": "R$ 39.269,00",
+      "description": "200.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751151803/vehicles/pjcfqzwdzh1rvpt4kc5k.png"
+    },
+    {
+      "id": "4274",
+      "category": "Caminhões",
+      "brand": "MERCEDES-BENZ",
+      "model": "Atego 1728 S 2p (diesel)",
+      "year": "2012",
+      "price": "R$ 135.158,00",
+      "description": "480.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751151894/vehicles/wdxsqeizm1aqr6micgql.png"
+    },
+    {
+      "id": "8822",
+      "category": "Carros",
+      "brand": "VW - VolksWagen",
+      "model": "up! take 1.0 Total Flex 12V 5p",
+      "year": "2015 Gasolina",
+      "price": "R$ 37.325,00",
+      "description": "135.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751152016/vehicles/lksefzcw9atzzk7oziz0.png"
+    },
+    {
+      "id": "4585",
+      "category": "Carros",
+      "brand": "Alfa Romeo",
+      "model": "145 Elegant 1.7/1.8 16V",
+      "year": "1999 Gasolina",
+      "price": "R$ 27.313,00",
+      "description": "190.000 km",
+      "image": "https://res.cloudinary.com/autolinkimage/image/upload/v1751152079/vehicles/fnaifqf6zxzseiyxxlte.png"
+    }
+  ],
   "sold-vehicles": []
 }

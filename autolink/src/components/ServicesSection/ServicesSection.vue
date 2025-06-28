@@ -1,14 +1,13 @@
 <template>
   <div :class="['animate__animated', 'animate__fadeIn']">
     <div class="content bg-primary text-white">
-      <div class="container">
-        <h2 class="text-center m-4 fs-3 fw-semibold">Serviços</h2>
+      <div class="container-fluid">
+        <h2 class="text-center m-4 p-3 fs-3 fw-semibold">Serviços</h2>
         <div
           class="row gap-4 p-3 d-flex justify-content-center align-items-center"
         >
           <div
-            class="card d-flex align-items-center bg-body-bg"
-            style="width: 376px; height: 330px"
+            class="card d-flex align-items-center bg-body-bg mb-5"
           >
             <svg
               width="140"
@@ -93,7 +92,7 @@
                 </linearGradient>
               </defs>
             </svg>
-            <div class="card-body d-flex flex-column align-items-center">
+            <div class="card-body d-flex flex-column justify-content-between align-items-center">
               <h5 class="card-title fw-bold">Oficina</h5>
               <p class="card-text text-center">
                 Os melhores profissionais para cuidar do seu veículo.
@@ -104,10 +103,7 @@
             </div>
           </div>
 
-          <div
-            class="card d-flex align-items-center bg-body-bg mb-4"
-            style="width: 376px; height: 330px"
-          >
+          <div class="card d-flex align-items-center bg-body-bg mb-5">
             <svg
               width="140"
               height="140"
@@ -199,7 +195,7 @@
                 </linearGradient>
               </defs>
             </svg>
-            <div class="card-body d-flex flex-column align-items-center">
+            <div class="card-body d-flex flex-column justify-content-between align-items-center">
               <h5 class="card-title fw-bold">Revisão</h5>
               <p class="card-text text-center">
                 Agendamento online com toda comodidade.
@@ -219,9 +215,15 @@
 
 <style scoped>
 .content {
-  margin: 50px;
+  margin: 50px 0;
 }
 p {
   color: #888888;
+}
+
+.card {
+  max-height: 330px;
+  width: 376px;
+  height: 330px;
 }
 </style>

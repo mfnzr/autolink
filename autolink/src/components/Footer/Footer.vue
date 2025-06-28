@@ -1,7 +1,7 @@
 <template>
   <div :class="['animate__animated', 'animate__fadeIn']">
     <footer class="py-5 footer-transparent w-100 mt-5">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
 					<!-- Coluna do logo, redes sociais e botão -->
 					<div class="col-12 col-md-4 mb-3 d-flex flex-column align-items-center justify-content-start custom-footer">
@@ -82,7 +82,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-2 mb-3">
+          <div class="col-6 col-md-2 mb-3 list">
             <h5 class="text-primary fw-bold fs-6">PÓS VENDAS</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2">
@@ -93,7 +93,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-2 mb-3">
+          <div class="col-6 col-md-2 mb-3 list">
             <h5 class="text-primary fw-bold fs-6">OUTROS SERVIÇOS</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2">
@@ -107,7 +107,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-2 mb-3">
+          <div class="col-6 col-md-2 mb-3 list">
             <h5 class="text-primary fw-bold fs-6">ATENDIMENTOS</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2">
